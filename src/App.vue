@@ -5,18 +5,18 @@
       <h1>{{ title }}</h1>
       <input id="inputAdd" v-model="currentTask" v-on:keyup.13="addTask">
       <h2>ToDo</h2>
-      <ul id="task-list">
-        <li v-for="task, index in tasks">
-          <input type="checkbox" v-model="task.show">
-          <span v-if="task.show">
+      <table id="task-list">
+        <tr v-for="task, index in tasks">
+          <td><input type="checkbox" v-model="task.show"></td>
+          <td><span v-if="task.show">
             {{ task.title }}
           </span>
           <span v-else>
             <strike>{{ task.title }}</strike>
-          </span>
-          <button v-on:click="delTask(index)">X</button>
-        </li>
-      </ul>
+          </span></td>
+          <td><button class="btn btn-danger" v-on:click="delTask(index)">X</button></td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
@@ -60,6 +60,11 @@ module.exports = {
   }
 }
 </script>
+
+<style lang="scss">
+    @import './styles/custom-bootstrap.scss';
+    @import '../node_modules/bootstrap/scss/bootstrap.scss';
+</style>
 
 <style>
 #app {
