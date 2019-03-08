@@ -36,15 +36,26 @@ module.exports = {
       ]
     }
   },
+  mounted() {
+    if (localStorage.tasks) {
+      this.tasks = JSON.parse(localStorage.tasks);
+    }
+  },
   methods: {
     addTask : function (event){
       if (this.currentTask!=""){
         this.tasks.push({title:this.currentTask, show:true});
         this.currentTask="";
+        this.saveToDo();
       }
     },
     delTask : function (index){
       this.$delete(this.tasks, index)
+      this.saveToDo();
+    },
+    saveToDo : function(){
+      data = JSON.stringify(this.tasks);
+      localStorage.tasks=data;
     }
   }
 }
