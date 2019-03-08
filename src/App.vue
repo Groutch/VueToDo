@@ -4,7 +4,8 @@
     <div id="myApplication">
       <h1>{{ title }}</h1>
       <input id="inputAdd" v-model="currentTask" v-on:keyup.13="addTask">
-      <h2>ToDo</h2>
+      <button class="btn btn-success" v-on:click="addTask">+</button>
+      <hr style="width:10%">
       <table id="task-list">
         <tr v-for="task, index in tasks">
           <!--<td><input type="checkbox" v-model="task.show"></td>-->
@@ -28,7 +29,7 @@
 module.exports = {
   data(){
     return{
-      title: "Groutch",
+      title: "Groutch's ToDoList",
       currentTask: "",
       tasks: [
         {title: 'Tache 1', show:true },
@@ -77,8 +78,8 @@ module.exports = {
   margin-top: 60px;
   text-align: center;
 }
-ul{
-  text-align:left;
-}
+  table{
+    margin: 0px auto;
+  }
 
 </style>
