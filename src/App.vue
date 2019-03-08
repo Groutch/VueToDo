@@ -7,13 +7,15 @@
       <h2>ToDo</h2>
       <table id="task-list">
         <tr v-for="task, index in tasks">
-          <td><input type="checkbox" v-model="task.show"></td>
-          <td><span v-if="task.show">
-            {{ task.title }}
-          </span>
-          <span v-else>
-            <strike>{{ task.title }}</strike>
-          </span></td>
+          <!--<td><input type="checkbox" v-model="task.show"></td>-->
+          <td v-on:click="task.show=!task.show">
+            <span v-if="task.show" >
+              {{ task.title }}
+            </span>
+            <span v-else>
+              <strike>{{ task.title }}</strike>
+            </span>
+          </td>
           <td><button class="btn btn-danger" v-on:click="delTask(index)">X</button></td>
         </tr>
       </table>
