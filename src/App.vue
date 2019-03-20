@@ -78,8 +78,9 @@ module.exports = {
   margin-top: 60px;
   text-align: center;
 }
-  table{
-    margin: 0px auto;
-  }
+table{
+  margin: 0px auto;
+}
+span { cursor: pointer; }
 
 </style>
