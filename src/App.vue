@@ -7,7 +7,7 @@
       <button class="btn btn-success" v-on:click="addTask">+</button>
       <hr style="width:10%">
       <table id="task-list">
-        <tr v-for="task, index in tasks">
+        <tr v-for="(task, index) in tasks" :key="index">
           <!--<td><input type="checkbox" v-model="task.show"></td>-->
           <td v-on:click="task.show=!task.show">
             <span v-if="task.show" >
@@ -65,8 +65,8 @@ module.exports = {
 </script>
 
 <style lang="scss">
-    @import './styles/custom-bootstrap.scss';
-    @import '../node_modules/bootstrap/scss/bootstrap.scss';
+  @import './styles/custom-bootstrap.scss';
+  @import '../node_modules/bootstrap/scss/bootstrap.scss';
 </style>
 
 <style>
