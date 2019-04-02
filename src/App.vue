@@ -9,7 +9,7 @@
       <table id="task-list">
         <tr v-for="(task, index) in tasks" :key="index">
           <!--<td><input type="checkbox" v-model="task.show"></td>-->
-          <td v-on:click="task.show=!task.show">
+          <td v-on:click="toggleTask(index)">
             <span v-if="task.show" >
               {{ task.title }}
             </span>
@@ -54,6 +54,10 @@ module.exports = {
     },
     delTask : function (index){
       this.$delete(this.tasks, index)
+      this.saveToDo();
+    },
+    toggleTask : function (index){
+      this.tasks[index].show = !this.tasks[index].show;
       this.saveToDo();
     },
     saveToDo : function(){
